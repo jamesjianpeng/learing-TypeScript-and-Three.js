@@ -1,0 +1,32 @@
+{
+  "name": "typescript_threejs_vue_webpack_gulp",
+  "version": "0.0.1",
+  "description": "学习 TypeScript 和 Three.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesjianpeng/learing-TypeScript-and-Three.js.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "three.js"
+  ],
+  "author": "james",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jamesjianpeng/learing-TypeScript-and-Three.js/issues"
+  },
+  "homepage": "https://github.com/jamesjianpeng/learing-TypeScript-and-Three.js#readme",
+  "devDependencies": {
+    "commitizen": "^2.10.1",
+    "cz-conventional-changelog": "^2.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
