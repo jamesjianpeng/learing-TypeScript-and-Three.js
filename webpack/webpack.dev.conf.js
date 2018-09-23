@@ -1,9 +1,17 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-    mode: "production", // "production" | "development" | "none"
+    mode: 'development',
+    devServer: {
+        contentBase: '/',
+        hot: true,
+        host: '0.0.0.0',
+        open: true,
+        port: 8099
+    },
     entry: {
       main: path.resolve(__dirname, '../src/index.js')
     },
@@ -13,11 +21,12 @@ module.exports = {
         filename: '[name].js'
     },
     plugins: [
-        new CleanWebpackPlugin('dist', {
-            root: process.cwd(),
-            verbose: true,
-            dry: false
-        }),
+        new webpack.HotModuleReplacementPlugin(),
+        // new CleanWebpackPlugin('dist', {
+        //     root: process.cwd(),
+        //     verbose: true,
+        //     dry: false
+        // }),
         new HtmlWebpackPlugin({
             title: 'TypeScript and Threejs project',
             meta: {
