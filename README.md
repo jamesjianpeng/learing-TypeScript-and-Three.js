@@ -111,3 +111,42 @@
     * 值得注意的地方就是：
       1. include 和 exclude 都需要指明不然会去查找 node_modules ，测试或其他文件
       2. checkJs 使用 true，在 .js 文件中也开启类型的静态检查
+
+
+### 五，[配置只解析和编译的.js](https://github.com/jamesjianpeng/learing-TypeScript-and-Three.js/commit/76fdea91282a337829b059ef24898274e1603398)
+  - modify webpack.dev.conf.js，其他的配置不变
+    ```
+        /**
+         * @file 本地开发环境下的关键配置
+         * @author jamesjianpeng
+         */
+        const path = require('path');
+        const webpack = require('webpack');
+        const merge = require('webpack-merge');
+        const baseConf = require('./webpack.base.conf');
+
+        module.exports = (baseConf, {
+            mode: 'development',
+            devServer: {
+                contentBase: path.resolve(__dirname, '../dist'), // 使用相对于 dev.conf 配置的绝对路径
+                // contentBase: './dist', // 第二种方式 相对于 package.json 这一层
+                hot: true,
+                host: '0.0.0.0',
+                open: true,
+                port: 8099,
+                overlay: true // 在浏览器端展示错误
+            },
+            module: {
+                rules: [
+                    {
+                        test: /\.js/,
+                        use: 'babel-loader',
+                        exclude: /node_modules/
+                    }
+                ]
+            },
+            plugins: [
+                new webpack.HotModuleReplacementPlugin()
+            ]
+        });
+    ```
