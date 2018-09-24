@@ -60,3 +60,52 @@
 
   - add wepback.base.conf.js
     - 这个文件是把所有公共的配置写进来，在输入的 conf 中使用 webpack-merge 去合并 base.conf
+
+
+### 五，[配置只解析和编译的.js 和 .ts 文件](https://webpack.js.org/guides/typescript/#src/components/Sidebar/Sidebar.jsx)
+
+  - add package scripts
+
+    1. 本地开发环境
+
+    ```
+      npm run local:dev:onlyts
+    ```
+
+    2. 生产环境打包
+
+    ```
+      npm run build:prod:onlyts
+    ```
+
+  - add webpack plugin
+
+    ```
+      npm i -D ts-loader
+      npm i -D typescript
+    ```
+
+  - add tsconfig.json [org](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)[other](https://ivweb.io/topic/5aa73bb35f0d763f33d74c6e)
+
+    * 项目中的配置：
+
+    ```json
+      {
+          "compilerOptions": {
+              "outDir": "./dist/",
+              "noImplicitAny": true,
+              "module": "es6",
+              "target": "es3",
+              "allowJs": true,
+              "checkJs": true
+          },
+          "include": [
+              "./src/**/*"
+          ],
+          "exclude": [
+              "node_modules",
+              "**/*.spec.ts"
+          ]
+      }
+    ```
+    * 值得注意的地方就是：include 和 exclude 都需要指明不然会去查找 node_modules ，测试或其他文件
