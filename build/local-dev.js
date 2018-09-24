@@ -1,10 +1,17 @@
 const webpack = require('webpack');
+const merge = require('webpack-merge');
 const webpackDevServer = require('webpack-dev-server');
-const devConfig = require('../webpack/webpack.dev.conf');
+let devConf = require('../webpack/webpack.dev.conf');
+const tsConf = require('../webpack/webpack.ts.conf');
 
-webpackDevServer.addDevServerEntrypoints(devConfig, devConfig.devServer);
+/**  #region only compiler ts */
+const argv = Array.from(process.argv)
+if (argv.includes('ts')) {
+    devConf = merge(devConf, tsConf)
+}
+/**  #endregion */
 
-const compiler = webpack(devConfig);
-
-new webpackDevServer(compiler, devConfig.devServer)
-  .listen(devConfig.devServer.port);
+webpackDevServer.addDevServerEntrypoints(devConf, devConf.devServer);
+const compiler = webpack(devConf);
+new webpackDevServer(compiler, devConf.devServer)
+  .listen(devConf.devServer.port);

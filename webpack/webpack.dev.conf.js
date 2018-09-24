@@ -1,37 +1,20 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const merge = require('webpack-merge');
+const baseConf = require('./webpack.base.conf');
 
-module.exports = {
+module.exports = (baseConf, {
     mode: 'development',
     devServer: {
-        contentBase: '/',
+        contentBase: path.resolve(__dirname, '../dist'), // 使用相对于 dev.conf 配置的绝对路径
+        // contentBase: './dist', // 第二种方式 相对于 package.json 这一层
         hot: true,
         host: '0.0.0.0',
         open: true,
-        port: 8099
-    },
-    entry: {
-      main: path.resolve(__dirname, '../src/index.js')
-    },
-    output: {
-        path: path.resolve(__dirname, '../dist'),
-        publicPath: './',
-        filename: '[name].js'
+        port: 8099,
+        overlay: true // 在浏览器端展示错误
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        // new CleanWebpackPlugin('dist', {
-        //     root: process.cwd(),
-        //     verbose: true,
-        //     dry: false
-        // }),
-        new HtmlWebpackPlugin({
-            title: 'TypeScript and Threejs project',
-            meta: {
-                viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
-            }
-        })
+        new webpack.HotModuleReplacementPlugin()
     ]
-};
+});

@@ -13,39 +13,50 @@
 
   - add package scripts
   1. 生产环境打包
-```
-  npm run build:prod
-```
+  ```
+    npm run build:prod
+  ```
 
   - add webpack plugin
-```
-  npm i -D clean-webpack-plugin
-  npm i -D  html-webpack-plugin
-```
+  ```
+    npm i -D clean-webpack-plugin
+    npm i -D  html-webpack-plugin
+  ```
 
 ### 遇到的问题：
   - [使用 clean-webpack-plugin dist 文件无法清除](https://github.com/johnagan/clean-webpack-plugin/issues/10)
   - 解决之后的配置：
-```js
-  ...
-    new CleanWebpackPlugin('dist', {
-        root: process.cwd(), // 关键点
-        verbose: true,
-        dry: false
-    }),
-  ...
-```
+  ```js
+    ...
+      new CleanWebpackPlugin('dist', {
+          root: process.cwd(), // 关键点
+          verbose: true,
+          dry: false
+      }),
+    ...
+  ```
   root 这个配置必须要，除了这种方法外还可以通过 在终端输入 pwd 获得 webpack 对应配置的路径，然后 copy 到 root 的位置，但是这个这个方法不够灵活每个人项目存放的路径对于工程搭建者是未知的，使用 process.cwd() 是最优的方法
 
 ### 三，初始化本地开发环境
 
   - add package scripts
-  1.本第开发环境
-```
-  npm run build:local
-```
+  1. 本地开发环境
+  ```
+    npm run build:local
+  ```
 
   - add webpack plugin
-```
-  npm i -D webpack-dev-server
-```
+  ```
+    npm i -D webpack-dev-server
+  ```
+
+### 四，从 local-dve 和 prod-build 中抽离公共的 base conf
+
+  - add webpack plugin
+
+    ```
+      npm i -D webpack-merge
+    ```
+
+  - add wepback.base.conf.js
+    - 这个文件是把所有公共的配置写进来，在输入的 conf 中使用 webpack-merge 去合并 base.conf
