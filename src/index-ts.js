@@ -2,7 +2,7 @@
  * @file TypeScript 应用的入口文件
  * @author jamesjianpeng
  */
-import firstObj from './views/first.ts';
+import firstObj from './views-ts/first.ts';
 
 console.log('hello webpack TypeScript ！！');
 /**
@@ -15,5 +15,4 @@ let name = 'james';
  */
 let greeting = 'hello';
 
-greeting = 6666;
 console.log(firstObj.greeting(name, greeting, new Date().toString()))
