@@ -8,6 +8,7 @@
     "build:prod:onlyts": "node ./build/prod-build.js ts",
     "build:local": "node ./build/local-dev.js",
     "build:local:onlyts": "node ./build/local-dev.js ts",
+    "build:jsdoc": "jsdoc -c ./jsdoc.json -r -R README.md",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -1,3 +1,7 @@
+/**
+ * @file 本地开发环境下的关键配置
+ * @author jamesjianpeng
+ */
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');

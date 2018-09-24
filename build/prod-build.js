@@ -1,3 +1,7 @@
+/**
+ * @file 生产环境下的配置
+ * @author jamesjianpeng
+ */
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');

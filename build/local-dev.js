@@ -1,3 +1,7 @@
+/**
+ * @file 本地开发环境下的 node 脚本，这种方式是通过命令行传参数
+ * @author jamesjianpeng
+ */
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const webpackDevServer = require('webpack-dev-server');
