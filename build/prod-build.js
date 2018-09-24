@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const merge = require('webpack-merge');
 const tsConf = require('../webpack/webpack.ts.conf');
 let webpackConfig = require('../webpack/webpack.prod.conf');
 
