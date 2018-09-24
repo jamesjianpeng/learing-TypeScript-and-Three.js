@@ -1,0 +1,9 @@
+[production staging]
+> 1%
+ie 10
+Android >= 4.4
+iOS 8
+
+[development]
+last 1 chrome version
+last 1 firefox version

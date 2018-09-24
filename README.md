@@ -114,7 +114,9 @@
 
 
 ### 五，[配置只解析和编译的.js](https://github.com/jamesjianpeng/learing-TypeScript-and-Three.js/commit/76fdea91282a337829b059ef24898274e1603398)
+
   - modify webpack.dev.conf.js，其他的配置不变
+
     ```
         /**
          * @file 本地开发环境下的关键配置
@@ -150,3 +152,44 @@
             ]
         });
     ```
+
+    - add .babelrc
+
+    ```
+        {
+            "plugins": ["@babel/plugin-syntax-dynamic-import"],
+            "presets": [
+                [
+                    "@babel/preset-env", {
+                        "modules": false,
+                        "useBuiltIns": "usage"
+                    }
+                ]
+            ]
+        }
+    ```
+
+    - add webpack plugins，使用 [babel 7](https://babeljs.io/docs/en/v7-migration)
+
+    ```
+      npm i -D @babel-core
+      npm i -D @babel/preset-env
+      npm i -D @babel/plugin-syntax-dynamic-import
+      npm i -D @babel-loader
+    ```
+
+    - add [.browserslistrc](https://github.com/browserslist/browserslist#queries)
+
+    ```
+      [production staging]
+      > 1%
+      ie 10
+      Android >= 4.4
+      iOS 8
+
+      [development]
+      last 1 chrome version
+      last 1 firefox version
+    ```
+
+    * .browserslistrc 的作用就是告诉浏览器项目兼容的情况查询： https://browserl.ist/
