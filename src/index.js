@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /**
  * @file 原生的 JavaScript 应用的入口文件
  * @author jamesjianpeng
