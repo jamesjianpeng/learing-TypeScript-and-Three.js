@@ -7,9 +7,3 @@
 
 console.log('hello webpack dev ！！');
 // console.log(firstObj.greeting('james', 'hello', new Date().toString()))
-=======
-import firstObj from './views/first.ts';
-
-console.log('hello webpack dev ！！');
-console.log(firstObj.greeting('james', 'hello', new Date().toString()))
->>>>>>> d0f3cc4a1ce57fced96193bac055a1f1c2ae5774
