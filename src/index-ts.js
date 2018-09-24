@@ -4,7 +4,7 @@
  */
 import firstObj from './views/first.ts';
 
-console.log('hello webpack dev ！！');
+console.log('hello webpack TypeScript ！！');
 /**
  * @type {String}
  */
