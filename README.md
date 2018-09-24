@@ -69,7 +69,11 @@
     1. 本地开发环境
 
     ```
+<<<<<<< HEAD
       npm run build:local:onlyts
+=======
+      npm run local:dev:onlyts
+>>>>>>> d0f3cc4a1ce57fced96193bac055a1f1c2ae5774
     ```
 
     2. 生产环境打包
@@ -108,6 +112,10 @@
           ]
       }
     ```
+<<<<<<< HEAD
     * 值得注意的地方就是：
       1. include 和 exclude 都需要指明不然会去查找 node_modules ，测试或其他文件
       2. checkJs 使用 true，在 .js 文件中也开启类型的静态检查
+=======
+    * 值得注意的地方就是：include 和 exclude 都需要指明不然会去查找 node_modules ，测试或其他文件
+>>>>>>> d0f3cc4a1ce57fced96193bac055a1f1c2ae5774
