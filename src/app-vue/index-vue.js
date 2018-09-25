@@ -8,7 +8,9 @@ const createAppId = function() {
     document.body.insertBefore(app, scriptTag);
     return '#' + app.id;
 };
+
 console.log(createAppId())
+
 new Vue({
     el: createAppId(),
     render: (h) => h(app),
