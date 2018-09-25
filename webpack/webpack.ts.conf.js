@@ -9,7 +9,7 @@ const baseConf = require('./webpack.base.conf');
 module.exports = merge(baseConf, {
     mode: 'none',
     entry: {
-        'main': path.resolve(__dirname, '../src/app-ts/index-ts.js')
+        'main': path.resolve(__dirname, '../src/app-ts/index-ts.ts')
     },
     module: {
       rules: [
