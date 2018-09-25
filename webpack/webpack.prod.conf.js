@@ -4,7 +4,15 @@
  */
 const merge = require('webpack-merge');
 const baseConf = require('./webpack.base.conf');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = merge(baseConf, {
-    mode: 'production', // "production" | "development" | "none"
+    mode: 'production', // "production" | "development" | "none"\
+    plugins: [
+        new CleanWebpackPlugin('dist', {
+            root: process.cwd(),
+            verbose: true,
+            dry: false
+        })
+    ]
 });

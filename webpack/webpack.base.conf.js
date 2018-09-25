@@ -4,24 +4,27 @@
  */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'none',
     entry: {
-        'main': path.resolve(__dirname, '../src/index.js')
+        'main': path.resolve(__dirname, '../src/app/index.js')
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
         publicPath: './',
         filename: '[name].js'
     },
+    module: {
+        rules: [
+            {
+                test: /\.js/,
+                use: 'babel-loader',
+                exclude: /node_modules/
+            }
+        ]
+    },
     plugins: [
-        new CleanWebpackPlugin('dist', {
-            root: process.cwd(),
-            verbose: true,
-            dry: false
-        }),
         new HtmlWebpackPlugin({
             title: 'TypeScript and Threejs project',
             meta: {

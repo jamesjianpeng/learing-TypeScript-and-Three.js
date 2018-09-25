@@ -18,15 +18,6 @@ module.exports = (baseConf, {
         port: 8099,
         overlay: true // 在浏览器端展示错误
     },
-    module: {
-        rules: [
-            {
-                test: /\.js/,
-                use: 'babel-loader',
-                exclude: /node_modules/
-            }
-        ]
-    },
     plugins: [
         new webpack.HotModuleReplacementPlugin()
     ]
