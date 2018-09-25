@@ -2,7 +2,7 @@
  * @file TypeScript 应用的入口文件
  * @author jamesjianpeng
  */
-import firstObj from './views-ts/first.ts';
+import firstObj from './first.ts';
 
 console.log('hello webpack TypeScript ！！');
 /**
