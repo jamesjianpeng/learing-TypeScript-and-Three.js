@@ -297,7 +297,7 @@
                         loader: 'vue-loader'
                     },
                     {
-                        test: /\.css$/,
+                        test: /\.scss$/,
                         use: [
                             'vue-style-loader',
                             'css-loader',
