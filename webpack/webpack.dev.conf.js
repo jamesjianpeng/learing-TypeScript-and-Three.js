@@ -4,9 +4,8 @@
  */
 const path = require('path');
 const webpack = require('webpack');
-const merge = require('webpack-merge');
-const baseConf = require('./webpack.base.conf');
-module.exports = merge(baseConf, {
+
+module.exports = {
     mode: 'development',
     devServer: {
         contentBase: path.resolve(__dirname, '../dist'), // 使用相对于 dev.conf 配置的绝对路径
@@ -20,4 +19,4 @@ module.exports = merge(baseConf, {
     plugins: [
         new webpack.HotModuleReplacementPlugin()
     ]
-});
+};

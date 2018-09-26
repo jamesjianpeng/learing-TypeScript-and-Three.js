@@ -4,12 +4,21 @@
  */
 const merge = require('webpack-merge');
 let devConf = require('../webpack/webpack.dev.conf');
+const baseConf = require('../webpack/webpack.base.conf');
 const tsConf = require('../webpack/webpack.ts.conf');
 const vueConf = require('../webpack/webpack.vue.conf');
+const tsVueConf = require('../webpack/webpack.ts.vue.conf');
 const { devScript } = require('./base-dev.js');
 
-/**  #region only compiler ts */
 const argv = Array.from(process.argv)
+
+/**  #region only .js */
+if (!argv[2]) {
+    devConf = merge(devConf, baseConf)
+}
+/**  #endregion */
+
+/**  #region only compiler ts */
 if (argv.includes('ts')) {
     devConf = merge(devConf, tsConf)
 }
@@ -18,6 +27,12 @@ if (argv.includes('ts')) {
 /**  #region only compiler vue */
 if (argv.includes('vue')) {
     devConf = merge(devConf, vueConf)
+}
+/**  #endregion */
+
+/**  #region only compiler vue */
+if (argv.includes('tsvue')) {
+    devConf = merge(devConf, tsVueConf)
 }
 /**  #endregion */
 
