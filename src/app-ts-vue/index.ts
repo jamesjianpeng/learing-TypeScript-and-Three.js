@@ -14,10 +14,14 @@ const createAppId = function() {
     return '#' + app.id;
 };
 
+console.log(createAppId())
+
 /**
  * @todo https://cn.vuejs.org/v2/guide/installation.html#%E8%BF%90%E8%A1%8C%E6%97%B6-%E7%BC%96%E8%AF%91%E5%99%A8-vs-%E5%8F%AA%E5%8C%85%E5%90%AB%E8%BF%90%E8%A1%8C%E6%97%B6
  * 第二种方式需要编译
+ *
  * 在 ./webpack/webapck.vue.conf.js 中的配置如下
+ *
  * ...
  *    resolve: {
  *        alias: {
@@ -25,6 +29,7 @@ const createAppId = function() {
  *        }
  *    }
  * ...
+ *
  */
 new Vue({
     el: createAppId(),
@@ -32,16 +37,15 @@ new Vue({
                     <app />
                </div>`,
     components:{
-      app
+        app
     }
 });
 
 /**
  * @todo https://cn.vuejs.org/v2/guide/installation.html#%E8%BF%90%E8%A1%8C%E6%97%B6-%E7%BC%96%E8%AF%91%E5%99%A8-vs-%E5%8F%AA%E5%8C%85%E5%90%AB%E8%BF%90%E8%A1%8C%E6%97%B6
- * 第二种方式需要编译
- * 不需要编译器
- * new Vue({
- *     el: createAppId(),
- *     render: (h) => h(app),
- * });
+ * 第一种方式不需要编译
  */
+// new Vue({
+//     el: createAppId(),
+//     render: (h) => h(app),
+// });
