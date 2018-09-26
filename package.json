@@ -6,10 +6,14 @@
   "scripts": {
     "build:prod": "node ./build/prod-build.js",
     "build:local": "node ./build/local-dev.js",
-    "build:prod:onlyts": "node ./build/prod-build.js ts",
-    "build:local:onlyts": "node ./build/local-dev.js ts",
+    "build:prod:onlyts": "npm run creareconf:onlyts && node ./build/prod-build.js ts",
+    "build:local:onlyts": "npm run creareconf:onlyts && node ./build/local-dev.js ts",
+    "creareconf:onlyts": "node ./build/helper/create-tsconf.js ts",
     "build:prod:onlyvue": "node ./build/prod-build.js vue",
     "build:local:onlyvue": "node ./build/local-dev.js vue",
+    "build:prod:onlytsvue": "npm run creareconf:onlytsvue && node ./build/prod-build.js tsvue",
+    "build:local:onlytsvue": "npm run creareconf:onlytsvue && node ./build/local-dev.js tsvue",
+    "creareconf:onlytsvue": "node ./build/helper/create-tsconf.js tsvue",
     "build:jsdoc": "jsdoc -c ./jsdoc.json -r -R README.md",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -45,7 +49,8 @@
     "vue-loader": "^15.4.2",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.5.17",
-    "webpack": "^4.20.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1",
     "webpack-dev-server": "^3.1.9",
     "webpack-merge": "^4.1.4"
   },
