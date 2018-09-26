@@ -2,13 +2,14 @@
 学习 TypeScript 和 Three.js
 
 ### 目录
-  - ** 一，初始化仓库和项目元数据
-  - ** 二，初步工程化，[github commit history](https://github.com/jamesjianpeng/learing-TypeScript-and-Three.js/commit/4e697c5162fd0c18fef9ce7b1b31a09c66ebb39a)
+  - 一，初始化仓库和项目元数据
+  - 二，初步工程化，[github commit history](https://github.com/jamesjianpeng/learing-TypeScript-and-Three.js/commit/4e697c5162fd0c18fef9ce7b1b31a09c66ebb39a)
     - 遇到的问题
-  - ** 三，初始化本地开发环境
-  - ** 四，从 local-dve 和 prod-build 中抽离公共的 base conf
-  - ** 五，[配置只解析和编译的.js 和 .ts 文件](https://webpack.js.org/guides/typescript/#src/components/Sidebar/Sidebar.jsx)
-  - ** 六，[使用 webpack 构建 Vue 应用](https://github.com/jamesjianpeng/learing-TypeScript-and-Three.js/commit/7a9bbeccc7c6fe018ad543f4cc81173104a24d44)
+  - 三，初始化本地开发环境
+  - 四，从 local-dve 和 prod-build 中抽离公共的 base conf
+  - 五，[配置只解析和编译的.js 和 .ts 文件](https://webpack.js.org/guides/typescript/#src/components/Sidebar/Sidebar.jsx)
+  - 六，[使用 webpack 构建 Vue 应用](https://github.com/jamesjianpeng/learing-TypeScript-and-Three.js/commit/7a9bbeccc7c6fe018ad543f4cc81173104a24d44)
+
 
 ### 一，初始化仓库和项目元数据
 

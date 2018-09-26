@@ -19,13 +19,13 @@ if (!argv[2]) {
 }
 /**  #endregion */
 
-/**  #region only compiler ts */
+/**  #region only compiler TypeScript */
 if (argv.includes('ts')) {
     webpackConfig = merge(webpackConfig, tsConf)
 }
 /**  #endregion */
 
-/**  #region only compiler vue */
+/**  #region only compiler Vue */
 if (argv.includes('vue')) {
     webpackConfig = merge(webpackConfig, vueConf)
 }

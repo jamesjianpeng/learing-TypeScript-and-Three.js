@@ -18,19 +18,19 @@ if (!argv[2]) {
 }
 /**  #endregion */
 
-/**  #region only compiler ts */
+/**  #region only compiler TypeScript */
 if (argv.includes('ts')) {
     devConf = merge(devConf, tsConf)
 }
 /**  #endregion */
 
-/**  #region only compiler vue */
+/**  #region only compiler Vue */
 if (argv.includes('vue')) {
     devConf = merge(devConf, vueConf)
 }
 /**  #endregion */
 
-/**  #region only compiler vue */
+/**  #region only compiler TypeScript and Vue */
 if (argv.includes('tsvue')) {
     devConf = merge(devConf, tsVueConf)
 }
