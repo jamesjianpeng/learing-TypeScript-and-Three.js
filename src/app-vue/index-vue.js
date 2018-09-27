@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import app from './app.vue';
-
+import router from './router';
 /**
  * 生成一个 id 为 app 的元素插入到 body 中，在最后一个元素的前面
  * @param none
@@ -27,6 +27,7 @@ const createAppId = function() {
  * ...
  */
 new Vue({
+    router,
     el: createAppId(),
     template: `<div>
                     <app />
