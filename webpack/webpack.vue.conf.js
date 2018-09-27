@@ -14,7 +14,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, '../dist'),
         publicPath: './',
-        filename: '[name].js'
+        filename: 'js/[name].js'
     },
     resolve: {
         alias: {
@@ -24,6 +24,10 @@ module.exports = {
            */
            'vue$': 'vue/dist/vue.esm.js'
         }
+    },
+    externals: {
+        vue: 'Vue', // 需要知道库中暴露出来的 name，key 是我们在项目 import Vue from 'vue', value 就是 资源中暴露出来的名字
+        'vue-router': 'VueRouter'
     },
     module: {
         rules: [
@@ -49,7 +53,7 @@ module.exports = {
     plugins: [
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
-            title: 'TypeScript and Threejs project',
+            template: path.resolve(__dirname, '../src/app-vue/index-vue.html'),
             meta: {
                 viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
             }
