@@ -14,25 +14,25 @@ const argv = Array.from(process.argv)
 
 /**  #region only .js */
 if (!argv[2]) {
-    devConf = merge(devConf, baseConf)
+    devConf = merge(baseConf, devConf)
 }
 /**  #endregion */
 
 /**  #region only compiler TypeScript */
 if (argv.includes('ts')) {
-    devConf = merge(devConf, tsConf)
+    devConf = merge(tsConf, devConf)
 }
 /**  #endregion */
 
 /**  #region only compiler Vue */
 if (argv.includes('vue')) {
-    devConf = merge(devConf, vueConf)
+    devConf = merge(vueConf, devConf)
 }
 /**  #endregion */
 
 /**  #region only compiler TypeScript and Vue */
 if (argv.includes('tsvue')) {
-    devConf = merge(devConf, tsVueConf)
+    devConf = merge(tsVueConf, devConf)
 }
 /**  #endregion */
 

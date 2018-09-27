@@ -5,7 +5,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-let webpackConfig = require('../webpack/webpack.prod.conf');
+let prodConf = require('../webpack/webpack.prod.conf');
 const baseConf = require('../webpack/webpack.base.conf');
 const tsConf = require('../webpack/webpack.ts.conf');
 const vueConf = require('../webpack/webpack.vue.conf');
@@ -15,29 +15,29 @@ const argv = Array.from(process.argv)
 
 /**  #region only .js */
 if (!argv[2]) {
-    webpackConfig = merge(webpackConfig, tsConf)
+    prodConf = merge(tsConf, prodConf)
 }
 /**  #endregion */
 
 /**  #region only compiler TypeScript */
 if (argv.includes('ts')) {
-    webpackConfig = merge(webpackConfig, tsConf)
+    prodConf = merge(tsConf, prodConf)
 }
 /**  #endregion */
 
 /**  #region only compiler Vue */
 if (argv.includes('vue')) {
-    webpackConfig = merge(webpackConfig, vueConf)
+    prodConf = merge(vueConf, prodConf)
 }
 /**  #endregion */
 
 /**  #region only compiler TypeScript and Vue */
 if (argv.includes('tsvue')) {
-    webpackConfig = merge(webpackConfig, tsVueConf)
+    prodConf = merge(tsVueConf, prodConf)
 }
 /**  #endregion */
 
-webpack(webpackConfig, function(err, stats) {
+webpack(prodConf, function(err, stats) {
     if (err) throw err;
     if (stats.hasErrors()) {
         console.log(stats, 'has errors end');
