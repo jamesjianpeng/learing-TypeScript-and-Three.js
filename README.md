@@ -1,5 +1,6 @@
 # learing-TypeScript-and-Three.js
 学习 TypeScript 和 Three.js
+[彭涧的博客， www.pengjiandry.com](https://www.pengjiandry.com)
 
 ### 目录
   - 一，初始化仓库和项目元数据

@@ -1,1 +1,1 @@
-{"compilerOptions":{"outDir":"./dist/","noImplicitAny":true,"module":"es6","target":"es3","allowJs":true,"checkJs":true,"strict":true},"include":["./src/app-ts-vue/**/*"],"exclude":["node_modules","**/*.spec.ts"]}
+{"compilerOptions":{"outDir":"./dist/","noImplicitAny":true,"module":"es6","target":"es3","allowJs":true,"checkJs":true},"include":["./src/app-ts/**/*"],"exclude":["node_modules","**/*.spec.ts"]}
