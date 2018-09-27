@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import app from './app.vue';
+import App from './app.vue';
 
 /**
  * 生成一个 id 为 app 的元素插入到 body 中，在最后一个元素的前面
@@ -34,10 +34,10 @@ console.log(createAppId())
 new Vue({
     el: createAppId(),
     template: `<div>
-                    <app />
+                    <App />
                </div>`,
     components:{
-        app
+        App
     }
 });
 

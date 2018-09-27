@@ -9,6 +9,7 @@
   - 四，从 local-dve 和 prod-build 中抽离公共的 base conf
   - 五，[配置只解析和编译的.js 和 .ts 文件](https://webpack.js.org/guides/typescript/#src/components/Sidebar/Sidebar.jsx)
   - 六，[使用 webpack 构建 Vue 应用](https://github.com/jamesjianpeng/learing-TypeScript-and-Three.js/commit/7a9bbeccc7c6fe018ad543f4cc81173104a24d44)
+  - 七，[使用 webpack 构建 TypeScript and Vue 应用](https://github.com/jamesjianpeng/learing-TypeScript-and-Three.js/commit/635417def4d32d115d50a5fbc014034591373f0b)
 
 
 ### 一，初始化仓库和项目元数据
@@ -223,3 +224,26 @@
         });
 
     ```
+
+### 七，[使用 webpack 构建 TypeScript and Vue 应用](https://github.com/jamesjianpeng/learing-TypeScript-and-Three.js/commit/635417def4d32d115d50a5fbc014034591373f0b)
+  
+  - 为什么开始使用 TypeScript 
+    1. TypeScript 的静态检查可以起到一定避免出低级bug的问题，更好的集中在编码的逻辑上
+    2. 接口规范（后续更新）
+
+  - add package.json scripts
+  - add webpack.ts.vue.conf.js
+  - add src/app-ts-vue/**
+  - add vue.shims.d.ts
+
+    ```typescript
+      declare module "*.vue" {
+          import Vue from "vue"
+          export default Vue
+      }
+    ```
+
+  - 注意：
+    1. *.d.ts 文件中的字符必须使用 "" 否则，在项目文件中 我们指定的文件后缀的文件会提示：Can't find this module
+    2. 在 Vue 项目使用了 TypeScript 之后 babel 不能使用，会出现 errror（我在测试的时候用是有问题-@.@-）
+    3. 在搭建工程时如果使用 html-webpack-plugin 这个插件记得在启动 dev 或 build 脚本中检查一下配置
