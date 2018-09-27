@@ -32,12 +32,6 @@ module.exports = {
                 loader: 'vue-loader'
             },
             {
-                test: /\.js$/,
-                use: 'babel-loader',
-                exclude: /node_module/
-                // include: [ path.resolve(__dirname, '../src/app-ts-vue/**/*')],
-            },
-            {
                 test: /\.scss/,
                 use: [
                     'vue-style-loader',
@@ -49,9 +43,8 @@ module.exports = {
                 test: /.ts$/,
                 loader: 'ts-loader',
                 options: {
-                    appendTsSuffixTo: [ /\.vue$/ ],
+                    appendTsSuffixTo: [ /\.vue$/ ]
                 },
-                include: [ path.resolve(__dirname, '../src/app-ts-vue/**/*') ],
                 exclude: /node_module/
             }
         ]
