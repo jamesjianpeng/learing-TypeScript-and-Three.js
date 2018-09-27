@@ -12,7 +12,8 @@ let ts = {
         "module": "es6",
         "target": "es3",
         "allowJs": true,
-        "checkJs": true
+        "checkJs": true,
+        "moduleResolution": "node"
     },
     "include": [
         "./src/app-ts/**/*",
@@ -24,15 +25,39 @@ let ts = {
 };
 
 // onlytsvue 的脚本生成的 tsconf.json
+// let tsvue = {
+//     "compilerOptions": {
+//         "noImplicitAny": true,
+//         "outDir": "./dist/",
+//         // 构建出 ES5 版本的 JavaScript，与 Vue 的浏览器支持保持一致
+//         "target": "es3",
+//         // 开启严格模式，这可以对 `this` 上的数据属性进行更严格的推断
+//         "strict": true,
+//         // 输出的 JavaScript 采用 es2015 模块化，使 Tree Shaking 生效
+//         "module": "es6",
+//         "moduleResolution": "node",
+//         "allowJs": true, // 可以解析 .js
+//         "checkJs": true,
+//     },
+//     "include": [
+//         "./src/app-ts-vue/**/*",
+//     ],
+//     "exclude": [
+//         "node_modules",
+//         "**/*.spec.ts"
+//     ]
+// };
+
 let tsvue = {
     "compilerOptions": {
-        "outDir": "./dist/",
         "noImplicitAny": true,
-        "module": "es6",
+        "outDir": "./dist/",
         "target": "es3",
-        "allowJs": true,
+        "strict": true,
+        "module": "es6",
+        "moduleResolution": "node",
+        "allowJs": true, // 可以解析 .js
         "checkJs": true,
-        "strict": true
     },
     "include": [
         "./src/app-ts-vue/**/*",
