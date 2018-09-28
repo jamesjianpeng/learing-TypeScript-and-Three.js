@@ -13,7 +13,7 @@ const routes = [
   {
     path: '/',
     name: 'layoutDefault',
-    component: () => import(/* layout-default' */'../layout/default.vue'),
+    component: () => import(/* webpackChunkName: "layout-default" */'../layout/default.vue'),
     children: defaultRoutes,
   },
 ];
