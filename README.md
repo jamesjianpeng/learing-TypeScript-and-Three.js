@@ -243,6 +243,17 @@
           export default Vue
       }
     ```
+  - modified tsconfig 
+    ```json
+      {
+        "compilerOptions": {
+            ...
+            "moduleResolution": "node",
+            ...
+        },
+      }
+    ```
+    - [解析策略试图在运行时模仿Node.js模块解析机制](https://typescript.bootcss.com/module-resolution.html)
 
   - 注意：
     1. *.d.ts 文件中的字符必须使用 "" 否则，在项目文件中 我们指定的文件后缀的文件会提示：Can't find this module
