@@ -1,9 +1,8 @@
 <template lang="html">
     <div class="app">
       app hello TypeScript and Vue cool !!!q@#_#@p~~
-      <button type="button" @click="increment" name="button">click</button>
-      <!-- {{ exclamationMarks }} -->
-      {{ number }}
+      <button type="button" @click="alertMsg" name="button">click</button>
+      <router-view></router-view>
     </div>
 </template>
 
@@ -83,16 +82,12 @@ import Vue from "vue";
 export default Vue.extend({
   data() {
     return {
-      msg: 'Hello,Webpack',
-      number: 100
+      msg: 'Hello,Webpack'
     }
   },
   methods: {
       alertMsg(msg:string):void {
           alert(msg || 'default')
-      },
-      increment():void {
-          this.number++;
       }
   }
 });
@@ -100,7 +95,7 @@ export default Vue.extend({
 
 <style lang="scss">
 .app {
-    font-size: 80px;
+    font-size: 20px;
     color: #eee;
 }
 </style>

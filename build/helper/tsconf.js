@@ -50,17 +50,36 @@ let ts = {
 
 let tsvue = {
     "compilerOptions": {
+        "importHelpers": true,
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        
         "noImplicitAny": true,
         "outDir": "./dist/",
         "target": "es3",
         "strict": true,
-        "module": "es6",
-        "moduleResolution": "node",
-        "allowJs": true, // 可以解析 .js
-        "checkJs": true,
+        "moduleResolution": "node", // 模块路径的解析采用 node 的模式
+        "sourceMap": true,
+        "module": "esNext", 
+        /**
+         * 使用这个配置 "module": "node" 在项目中使用 import()，  error： TS1323: Dynamic import is only supported when '--module' flag is 'commonjs' or 'esNext'. 
+         *      解决方法："module": "esNext"
+         *      原因：import() 不是 es2015 的内容，2018-9-28 它还在 stage-2 
+         */
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "scripthost",
+            "esnext", // 或者 "es2015" 不使用 error： Cannot find global value 'Promise'.
+            "dom" // 不使用 TS2304: Cannot find name 'document[console, ...]'.
+        ]
     },
     "include": [
         "./src/app-ts-vue/**/*",
+        "node_modules/vue-router/types/*.d.ts",
+        "node_modules/vue/types/*.d.ts"
     ],
     "exclude": [
         "node_modules",
