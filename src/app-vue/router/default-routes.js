@@ -13,6 +13,11 @@ const defaultRoutes = [
       name: 'sketchpad',
       component: () => import(/* webpackChunkName: "pages-sketchpad" */'../pages/sketchpad.vue'),
     },
+    {
+      path: '/list-nesting',
+      name: 'listNesting',
+      component: () => import(/* webpackChunkName: "pages-sketchpad" */'../pages/list-nesting.vue'),
+    },
   ];
   
   export default defaultRoutes;
