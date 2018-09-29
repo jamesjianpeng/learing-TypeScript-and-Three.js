@@ -8,6 +8,7 @@ const baseConf = require('../webpack/webpack.base.conf');
 const tsConf = require('../webpack/webpack.ts.conf');
 const vueConf = require('../webpack/webpack.vue.conf');
 const tsVueConf = require('../webpack/webpack.ts.vue.conf');
+// const tsDevConf = require('../webpack/webpack.dev.ts.multiple.conf');
 const { devScript } = require('./base-dev.js');
 
 const argv = Array.from(process.argv)
@@ -18,9 +19,16 @@ if (!argv[2]) {
 }
 /**  #endregion */
 
-/**  #region only compiler TypeScript */
+/**  #region only compiler TypeScript 多页面 */
 if (argv.includes('ts')) {
-    devConf = merge(tsConf, devConf)
+    devConf.devServer.historyApiFallback = {
+        rewrites: [
+            { from: /^\//, to: '/index-threejs.html' },
+            { from: /^\/index-ts/, to: '/index-ts.html' },
+            { from: /^\/index-threejs/, to: '/index-threejs.html' }
+        ]
+    };
+    devConf = merge(tsConf, devConf);
 }
 /**  #endregion */
 

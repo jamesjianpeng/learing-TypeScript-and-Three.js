@@ -15,6 +15,10 @@ module.exports = {
         host: '0.0.0.0',
         open: true,
         port: 8099,
+        /**
+         *  @todo historyApiFallback 是在 ./build/local-dev.js 中配置
+         *  historyApiFallback: {},
+         */
         overlay: true // 在浏览器端展示错误
     },
     plugins: [
