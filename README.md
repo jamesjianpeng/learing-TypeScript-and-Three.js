@@ -11,6 +11,7 @@
   - 五，[配置只解析和编译的.js 和 .ts 文件](https://webpack.js.org/guides/typescript/#src/components/Sidebar/Sidebar.jsx)
   - 六，[使用 webpack 构建 Vue 应用](https://github.com/jamesjianpeng/learing-TypeScript-and-Three.js/commit/7a9bbeccc7c6fe018ad543f4cc81173104a24d44)
   - 七，[使用 webpack 构建 TypeScript and Vue 应用](https://github.com/jamesjianpeng/learing-TypeScript-and-Three.js/commit/635417def4d32d115d50a5fbc014034591373f0b)
+  - 八，在只使用 TypeScript 的应用中使用多页面
 
 
 ### 一，初始化仓库和项目元数据
@@ -254,8 +255,67 @@
       }
     ```
     - [解析策略试图在运行时模仿Node.js模块解析机制](https://typescript.bootcss.com/module-resolution.html)
+  
+  - 使用路由
+
+  - 使用 cdn 的方式加载部分核心和第三方库
 
   - 注意：
     1. *.d.ts 文件中的字符必须使用 "" 否则，在项目文件中 我们指定的文件后缀的文件会提示：Can't find this module
     2. 在 Vue 项目使用了 TypeScript 之后 babel 不能使用，会出现 errror（我在测试的时候用是有问题-@.@-）
     3. 在搭建工程时如果使用 html-webpack-plugin 这个插件记得在启动 dev 或 build 脚本中检查一下配置
+
+  
+### 八，在只使用 TypeScript 的应用中使用多页面
+
+  - modifi webpack
+    ```js
+      module.exports = {
+          ...
+          entry: {
+              'main-ts': path.resolve(__dirname, '../src/app-ts/ts/index-ts.ts'),
+              'main-threejs': path.resolve(__dirname, '../src/app-ts/threejs/index-threejs.ts')
+          },
+          ...
+          plugins: [
+               ...
+                new HtmlWebpackPlugin({
+                    template: path.resolve(__dirname, '../src/app-ts/ts/index-ts.html'),
+                    filename: 'index-ts.html',
+                    meta: {
+                        viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
+                    },
+                    chunks: ['main-ts']
+                }),
+                new HtmlWebpackPlugin({
+                    template: path.resolve(__dirname, '../src/app-ts/threejs/index-threejs.html'),
+                    filename: 'index-threejs.html',
+                    meta: {
+                        viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
+                    },
+                    chunks: ['main-threejs']
+                })
+              ...
+          ]
+      };
+
+    ```
+
+    - modified local-dev.js
+    ```js
+      ...
+        /**  #region only compiler TypeScript 多页面 */
+        if (argv.includes('ts')) {
+            devConf.devServer.historyApiFallback = {
+                rewrites: [
+                    { from: /^\//, to: '/index-threejs.html' },
+                    { from: /^\/index-ts/, to: '/index-ts.html' },
+                    { from: /^\/index-threejs/, to: '/index-threejs.html' }
+                ]
+            };
+            devConf = merge(tsConf, devConf);
+        }
+        /**  #endregion */
+      ...
+    ```
+
