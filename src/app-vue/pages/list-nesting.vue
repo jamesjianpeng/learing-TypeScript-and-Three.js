@@ -20,6 +20,7 @@
 </template>
 
 <script>
+/*@flow*/
 export default {
     name: 'ListNesting',
     data() {
@@ -62,7 +63,7 @@ export default {
         ];
     },
     methods: {
-        save(index, item) {
+        save (index, item) {
             console.log(index, item)
         }
     }

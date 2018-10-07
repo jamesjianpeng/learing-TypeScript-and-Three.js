@@ -9,7 +9,7 @@ let ts = {
     "compilerOptions": {
         "outDir": "./dist/",
         "noImplicitAny": true,
-        "module": "es6",
+        "module": "commonjs",
         "target": "es3",
         "allowJs": true,
         "checkJs": true,
@@ -51,7 +51,7 @@ let ts = {
 let tsvue = {
     "compilerOptions": {
         "importHelpers": true,
-        "moduleResolution": "node",
+
         "experimentalDecorators": true,
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
