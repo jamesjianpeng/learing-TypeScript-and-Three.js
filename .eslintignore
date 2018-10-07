@@ -1,0 +1,5 @@
+/src/app-ts/*.js
+/src/app-ts-vue/*.js
+/webpack/*.js
+/dist/*.js
+/build/**/*.js

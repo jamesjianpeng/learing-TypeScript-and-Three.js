@@ -319,3 +319,53 @@
       ...
     ```
 
+### 九，只在 JavaScript 的应用中 [flow](https://flow.org/en/docs/install/) 
+
+  - add webpack plugin
+
+    ```
+      npm i -g flow-bin
+      npm i -D flow-bin @babel/preset-flow
+    ```
+
+
+
+  - add .flowconfig
+    
+    - 生成 .flowconfig 文件
+    
+      ```
+        flow init
+      ```
+
+    - 添加配置
+    
+      ```json
+        [ignore]
+        .*/node_modules/.*
+        .*/test/.*
+        .*/build/.*
+        .*/config/.*
+        [include]
+        ./src/app/**/*
+        [libs]
+
+        [lints]
+
+        [options]
+
+        [strict]
+      ```
+
+  - add pacakage script
+
+    ```json
+      "flow:check": "flow check",
+      "build:prod": "npm run flow:check && node ./build/prod-build.js",
+      "build:local": "npm run flow:check && node ./build/local-dev.js",
+    ```
+
+  - 值得注意的是：
+    1. npm run build:prod or npm run build:local， flow 只检查一次，暂时不能实时检查
+
+### 十，只在 JavaScript 的应用中 使用 eslint
