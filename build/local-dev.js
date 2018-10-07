@@ -15,6 +15,14 @@ const argv = Array.from(process.argv)
 
 /**  #region only .js */
 if (!argv[2]) {
+    devConf.devServer.historyApiFallback = {
+        rewrites: [
+            { from: /^\//, to: '/index.html' },
+            { from: /^\/selection-sort/, to: '/selection-sort.html' },
+            { from: /^\/bubble-sort/, to: '/bubble-sort.html' },
+            { from: /^\/insertion-sort/, to: '/insertion-sort.html' },
+        ]
+    };
     devConf = merge(baseConf, devConf)
 }
 /**  #endregion */

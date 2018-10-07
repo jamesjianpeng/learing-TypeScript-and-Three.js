@@ -8,7 +8,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     mode: 'none',
     entry: {
-        'main': path.resolve(__dirname, '../src/app/index.js')
+        'main': path.resolve(__dirname, '../src/app/index.js'),
+        'selection-sort': path.resolve(__dirname, '../src/app/sort/selection-sort/index.js'),
+        'bubble-sort': path.resolve(__dirname, '../src/app/sort/bubble-sort/index.js'),
+        'insertion-sort': path.resolve(__dirname, '../src/app/sort/insertion-sort/index.js')
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
@@ -18,6 +21,12 @@ module.exports = {
     module: {
         rules: [
             {
+                enforce: "pre",
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "eslint-loader",
+            },
+            {
                 test: /\.js/,
                 use: 'babel-loader',
                 exclude: /node_modules/
@@ -26,10 +35,38 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'TypeScript and Threejs project',
+            title: 'JavaScript project',
             meta: {
                 viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
-            }
+            },
+            chunks: ['main']
+        }),
+        new HtmlWebpackPlugin({
+            // template: path.resolve(__dirname, '../src/app/sort/maopao/index.html'),
+            filename: 'selection-sort.html',
+            title: 'JavaScript project - sort selection-sort',
+            meta: {
+                viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
+            },
+            chunks: ['selection-sort']
+        }),
+        new HtmlWebpackPlugin({
+            // template: path.resolve(__dirname, '../src/app/sort/maopao/index.html'),
+            filename: 'bubble-sort.html',
+            title: 'JavaScript project - sort bubble-sort',
+            meta: {
+                viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
+            },
+            chunks: ['bubble-sort']
+        }),
+        new HtmlWebpackPlugin({
+            // template: path.resolve(__dirname, '../src/app/sort/maopao/index.html'),
+            filename: 'insertion-sort.html',
+            title: 'JavaScript project - sort insertion-sort',
+            meta: {
+                viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
+            },
+            chunks: ['insertion-sort']
         })
     ]
 };
