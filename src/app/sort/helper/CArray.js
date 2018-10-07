@@ -4,11 +4,8 @@ export default function CArray (numElements) {
      * @param {Number} numElements
      */
     this.dataStore = [];
-    this.pos = 0;
     this.numElements = numElements;
-    this.insert = insert;
     this.toString = toString;
-    this.clear = clear;
     this.setData = setData;
     this.swap = swap;
     var len = numElements;
@@ -41,10 +38,6 @@ function toString () {
     };
     return result;
 };
-
-function insert () {};
-
-function clear () {};
 
 /**
  * 把后一个数和前一个数进行交换
