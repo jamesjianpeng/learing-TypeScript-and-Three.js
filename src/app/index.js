@@ -2,46 +2,49 @@
  * @file 原生的 JavaScript 应用的入口文件
  * @author jamesjianpeng
  */
-import firstObj from './first.js';
 import CArray from './sort/helper/CArray.js';
 import { selectionSort } from './sort/helper/selection-sort.js';
 import { bubbleSort } from './sort/helper/bubble-sort.js';
 import { insertionSort } from './sort/helper/insertion-sort.js';
 import { shellSort, dynamicShellSort } from './sort/helper/shell-sort.js';
 
-console.log('hello webpack JavaScript ！！');
-console.log(firstObj.greeting('james', 'hello', new Date().toString()));
-
 const test = function (randObj) {
     let selectionSortList = JSON.parse(JSON.stringify(randObj.dataStore));
-    console.log('选择排序：', selectionSort.call(selectionSortList));
-    // console.log('selection sort', selectionSortList.toString());
+    console.log('%c 选择排序：', 'background: #7cb342; color: #fff;');
+    let selectionSortObj = selectionSort.call(selectionSortList);
+    console.log(selectionSortObj);
 
     let bubbleSortList = JSON.parse(JSON.stringify(randObj.dataStore));
-    console.log('冒泡排序：', bubbleSort.call(bubbleSortList));
-    // console.log('bubble sort', bubbleSortList.toString());
+    console.log('%c 冒泡排序：', 'background: #7cb342; color: #fff;');
+    let bubbleSortObj = bubbleSort.call(bubbleSortList);
+    console.log(bubbleSortObj);
 
     let insertionSortList = JSON.parse(JSON.stringify(randObj.dataStore));
-    console.log('插入排序：', insertionSort.call(insertionSortList));
-    // console.log('insertion sort', insertionSortList.toString());
+    console.log('%c 插入排序：', 'background: #7cb342; color: #fff;');
+    let insertionSortObj = insertionSort.call(insertionSortList);
+    console.log(insertionSortObj);
 
     let shellSortList = JSON.parse(JSON.stringify(randObj.dataStore));
-    console.log('固定间隔的希尔排序：', shellSort.call(shellSortList));
-    // console.log('insertion sort', insertionSortList.toString());
+    console.log('%c 固定间隔的希尔排序[11, 9, 7, 5, 3, 1]：', 'background: #26a69a; color: #fff;');
+    let shellSortObj = shellSort.call(shellSortList);
+    console.log(shellSortObj);
 
     let dynamicShellSortList = JSON.parse(JSON.stringify(randObj.dataStore));
-    console.log('动态间隔的希尔排序：', dynamicShellSort.call(dynamicShellSortList));
-    // console.log('insertion sort', insertionSortList.toString());
-    console.log('==========');
+    console.log('%c 动态间隔的希尔排序：', 'background: #26a69a; color: #fff;');
+    let dynamicShellSortObje = dynamicShellSort.call(dynamicShellSortList);
+    console.log(dynamicShellSortObje);
+
+    console.log('%c 选择排序 是 动态间隔的希尔排序 的', 'background: #5e35b1; color: #fff;', Math.round(selectionSortObj.time / dynamicShellSortObje.time), '倍');
+    console.log('%c 冒泡排序 是 动态间隔的希尔排序 的', 'background: #5e35b1; color: #fff;', Math.round(bubbleSortObj.time / dynamicShellSortObje.time), '倍');
+    console.log('%c 插入排序 是 动态间隔的希尔排序 的', 'background: #5e35b1; color: #fff;', Math.round(insertionSortObj.time / dynamicShellSortObje.time), '倍');
+    console.log('%c 固定间隔的希尔排序 是 动态间隔的希尔排序 的', 'background: #5e35b1; color: #fff;', Math.round(shellSortObj.time / dynamicShellSortObje.time), '倍');
 };
 
-let randList = new CArray(500);
-randList.setData();
-console.log(randList.toString());
+let randList = new CArray(6);
 
 for (let i = 0; i < randList.dataStore.length; i++) {
-    let randSecondList = new CArray(randList.dataStore[i]);
+    var len = 50000;
+    let randSecondList = new CArray(len || randList.dataStore[i]);
     randSecondList.setData();
-    console.log('数组的长度：', randList.dataStore[i]);
     test(randSecondList);
 }
