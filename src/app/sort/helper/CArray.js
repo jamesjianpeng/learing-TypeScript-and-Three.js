@@ -40,6 +40,22 @@ function toString () {
 };
 
 /**
+ * 输出指定的数组中全部的元素，每 10 个自动换行
+ */
+function toStringCurrency () {
+    if (Object.prototype.toString.call(this) !== '[object Array]') throw new TypeError('this is not array');
+    var len = this.length;
+    var result = '';
+    var i = 0;
+    while (i < len) {
+        result += this[i] + ' ';
+        if (((i + 1) % 10 === 0) && i > 0) result += '\n';
+        i++;
+    };
+    return result;
+};
+
+/**
  * 把后一个数和前一个数进行交换
  * @param {array} arr
  * @param {number} firstIndex
@@ -59,5 +75,6 @@ function swap (arr, firstIndex, secondIndex) {
 /** #endregion */
 
 export {
-    swap
+    swap,
+    toStringCurrency
 };
