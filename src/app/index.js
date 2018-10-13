@@ -7,7 +7,7 @@ import CArray from './sort/helper/CArray.js';
 import { selectionSort } from './sort/helper/selection-sort.js';
 import { bubbleSort } from './sort/helper/bubble-sort.js';
 import { insertionSort } from './sort/helper/insertion-sort.js';
-import { shellSort } from './sort/helper/shell-sort.js';
+import { shellSort, dynamicShellSort } from './sort/helper/shell-sort.js';
 
 console.log('hello webpack JavaScript ！！');
 console.log(firstObj.greeting('james', 'hello', new Date().toString()));
@@ -26,12 +26,16 @@ const test = function (randObj) {
     // console.log('insertion sort', insertionSortList.toString());
 
     let shellSortList = JSON.parse(JSON.stringify(randObj.dataStore));
-    console.log('希尔排序：', shellSort.call(shellSortList));
+    console.log('固定间隔的希尔排序：', shellSort.call(shellSortList));
+    // console.log('insertion sort', insertionSortList.toString());
+
+    let dynamicShellSortList = JSON.parse(JSON.stringify(randObj.dataStore));
+    console.log('动态间隔的希尔排序：', dynamicShellSort.call(dynamicShellSortList));
     // console.log('insertion sort', insertionSortList.toString());
     console.log('==========');
 };
 
-let randList = new CArray(100);
+let randList = new CArray(500);
 randList.setData();
 console.log(randList.toString());
 

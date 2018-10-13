@@ -1,19 +1,22 @@
 import CArray from '../helper/CArray';
-import { shellSort } from '../helper/shell-sort';
+import { shellSort, dynamicShellSort } from '../helper/shell-sort';
 
 /** @type {array} */
 let randomList = null;
 
 /** @type {object} shellSort 函数返回的执行时间 */
-let time;
+let resultOne;
+let resultTwo;
 document.write('希尔排序');
 
-console.log('insertion-sort');
-randomList = new CArray(10);
+randomList = new CArray(100);
 randomList.setData();
 
-time = shellSort.call(randomList.dataStore);
-console.log(randomList.toString(), time);
+resultOne = shellSort.call(JSON.parse(JSON.stringify(randomList.dataStore)));
+console.log(resultOne.list);
+
+resultTwo = dynamicShellSort.call(JSON.parse(JSON.stringify(randomList.dataStore)));
+console.log(resultTwo.list);
 
 // shellSort.call(randomList.dataStore, 'descend');
 // console.log(randomList.toString());
