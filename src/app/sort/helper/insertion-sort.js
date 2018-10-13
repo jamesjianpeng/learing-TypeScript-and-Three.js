@@ -41,6 +41,7 @@ export const insertionSort = function (sortWay) {
 
     return {
         time,
-        count
+        count,
+        list
     };
 };

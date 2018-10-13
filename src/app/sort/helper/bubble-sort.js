@@ -33,6 +33,7 @@ export const bubbleSort = function () {
 
     return {
         time,
-        count
+        count,
+        list
     };
 };

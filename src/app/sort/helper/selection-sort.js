@@ -50,6 +50,7 @@ export const selectionSort = function (sortWay) {
 
     return {
         time,
-        count
+        count,
+        list
     };
 };
