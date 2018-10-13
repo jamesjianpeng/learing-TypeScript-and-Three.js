@@ -2,6 +2,7 @@ import { swap } from './CArray.js';
 
 /**
  * 冒泡排序
+ * @function
  * @param {*}
  */
 export const bubbleSort = function () {

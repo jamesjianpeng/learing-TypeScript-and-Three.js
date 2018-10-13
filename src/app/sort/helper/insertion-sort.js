@@ -1,5 +1,6 @@
 /**
  * 插入排序
+ * @function
  * @param {string} sortWay : access 升序 | descend 降序
  */
 export const insertionSort = function (sortWay) {

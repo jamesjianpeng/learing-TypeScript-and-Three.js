@@ -2,6 +2,7 @@ import { swap } from './CArray.js';
 
 /**
  * 选择排序
+ * @function
  * @param {string} sortWay : access 升序 | descend 降序
  */
 export const selectionSort = function (sortWay) {
