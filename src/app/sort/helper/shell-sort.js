@@ -3,7 +3,7 @@
  * @function
  * @returns {Object} {time}
  */
-const interval = [5, 3, 1];
+const interval = [11, 9, 7, 5, 3, 1];
 
 const shellSort = function () {
     var list = this;
@@ -94,7 +94,7 @@ const dynamicShellSort = function () {
     if (Object.prototype.toString.call(list) !== '[object Array]') return new TypeError('list not array');
 
     dynamicInterval = 1;
-    
+
     /** #region 动态生成间隔 */
     while (dynamicInterval < (len / 3)) {
         dynamicInterval = len * 3 + 1;
