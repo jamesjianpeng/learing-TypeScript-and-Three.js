@@ -7,10 +7,21 @@ import { swap } from './CArray.js';
  */
 export const selectionSort = function (sortWay) {
     var list = this;
+
+    /** @type {number} 数组的长度 */
     var len = list.length;
+
+    /** @type {number} 第一层循环的索引 */
     var outer = 0;
+
+    /** @type {number} 第二层循环的索引 */
     var inner;
+
+    /** @type {number} 最深层循环的计数器 */
     var count = 1;
+
+    /** @type {number} 函数执行时间 */
+    var time = new Date().getTime();
     for (; outer < (len - 1); outer++) {
         for (inner = outer + 1; inner < len; inner++) {
             /** #region 降序 */
@@ -34,5 +45,11 @@ export const selectionSort = function (sortWay) {
             }
         }
     }
-    console.log('选择排序两层遍历的次数', count);
+
+    time = new Date().getTime() - time;
+
+    return {
+        time,
+        count
+    };
 };

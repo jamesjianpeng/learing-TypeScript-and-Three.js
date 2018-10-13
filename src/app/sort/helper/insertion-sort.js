@@ -5,11 +5,25 @@
  */
 export const insertionSort = function (sortWay) {
     var list = this;
+
+    /** @type {number} 数组的长度 */
     var len = list.length;
+
+    /** @type {number} 第一层循环的索引 */
     var outer = 1;
+
+    /** @type {number} 第二层循环的索引 */
     var inner;
+
+    /** @type {number} 临时储存固定对比的元素 */
     var temp;
+
+    /** @type {number} 最深层循环的计数器 */
     var count = 1;
+
+    /** @type {number} 函数执行时间 */
+    var time = new Date().getTime();
+
     for (; outer < len; ++outer) {
         temp = list[outer];
         inner = outer;
@@ -22,5 +36,11 @@ export const insertionSort = function (sortWay) {
         }
         list[inner] = temp;
     }
-    console.log('插入排序两层循环的总次数：', count);
+
+    time = new Date().getTime() - time;
+
+    return {
+        time,
+        count
+    };
 };

@@ -3,6 +3,8 @@ import { bubbleSort } from '../helper/bubble-sort.js';
 
 let randomList = null;
 
+document.write('冒泡排序');
+
 /** #region get random list */
 console.log('bubble-sort');
 randomList = new CArray(6);

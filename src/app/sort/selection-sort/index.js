@@ -3,6 +3,8 @@ import { selectionSort } from '../helper/selection-sort.js';
 
 let randomList = null;
 
+document.write('选择排序');
+
 /** #region get random list */
 console.log('selection-sort');
 randomList = new CArray(6);
