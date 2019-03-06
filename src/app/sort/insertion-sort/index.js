@@ -1,5 +1,5 @@
-import CArray from '../helper/CArray';
-import { insertionSort } from '../helper/insertion-sort.js';
+import CArray from '../../helper/CArray';
+import { insertionSort } from '../../helper/insertion-sort.js';
 
 let randomList = null;
 

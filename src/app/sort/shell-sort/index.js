@@ -1,5 +1,5 @@
-import CArray from '../helper/CArray';
-import { shellSort, dynamicShellSort } from '../helper/shell-sort';
+import CArray from '../../helper/CArray';
+import { shellSort, dynamicShellSort } from '../../helper/shell-sort';
 
 /** @type {array} */
 let randomList = null;

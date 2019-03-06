@@ -1,5 +1,5 @@
-import CArray from '../helper/CArray';
-import { selectionSort } from '../helper/selection-sort.js';
+import CArray from '../../helper/CArray';
+import { selectionSort } from '../../helper/selection-sort.js';
 
 let randomList = null;
 

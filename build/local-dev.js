@@ -22,6 +22,8 @@ if (!argv[2]) {
             { from: /^\/bubble-sort/, to: '/bubble-sort.html' },
             { from: /^\/insertion-sort/, to: '/insertion-sort.html' },
             { from: /^\/shell-sort/, to: '/shell-sort.html' },
+            { from: /^\/sequence-search/, to: '/sequence-search.html' },
+            { from: /^\/threejs-one/, to: '/threejs-one.html' }
         ]
     };
     devConf = merge(baseConf, devConf)

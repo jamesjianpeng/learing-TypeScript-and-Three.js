@@ -1,5 +1,5 @@
-import CArray from '../helper/CArray';
-import { bubbleSort } from '../helper/bubble-sort.js';
+import CArray from '../../helper/CArray';
+import { bubbleSort } from '../../helper/bubble-sort.js';
 
 let randomList = null;
 
